@@ -1,0 +1,200 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+    position: relative;
+    min-height: 100%;
+    background-color: rgb(242, 242, 242);
+}
+
+body {
+    margin-bottom: 60px;
+    background-color: rgb(242, 242, 242);
+}
+
+}
+
+.menugroupcaption {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 500;
+    word-wrap: break-word;
+}
+
+p, td, a, label {
+    font-size: 12px;
+    font-weight: 500;
+}
+
+p, td, th, h1, h2, h3, a, span, label, strong {
+    font-family: 'Roboto', sans-serif;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+*, ::after, ::before {
+    box-sizing: border-box;
+}
+
+user agent stylesheet
+p {
+    display: block;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    unicode-bidi: isolate;
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+.areacolor-Theater {
+    color: rgb(64, 88, 124);
+}
+
+.menuitemicon {
+    font-size: 20px;
+    margin-top: 3px;
+}
+
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    color: #212529;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+
+p, td, a, label {
+    font-size: 12px;
+    font-weight: 500;
+}
+
+p, td, th, h1, h2, h3, a, span, label, strong {
+    font-family: 'Roboto', sans-serif;
+}
+
+.menugroup {
+    background-color: rgb(255, 255, 255);
+    border-radius: 9px;
+}
+
+.menugroup {
+    margin: 12px;
+    padding: 18px;
+    border-radius: 9px;
+}
+
+.btn:not(:disabled):not(.disabled) {
+    cursor: pointer;
+}
+
+.menuitem, .dropdown-menuitem {
+    background-color: rgb(242, 242, 242);
+}
+
+.menuitem, .dropdown-menuitem {
+    border-radius: 50%;
+    width: 65px;
+    height: 65px;
+    transition: 0.5s;
+}
+
+.menuitemSm {
+    height: 41px;
+    width: 41px;
+}
+
+.menuitemXs {
+    height: 38px;
+    width: 38px;
+}
+
+.menuitemlight {
+    background-color: rgb(221, 230, 238)
+}
+
+.mp-0 {
+    margin:0;
+    padding:0;
+}
+
+.smalllabel {
+    font-size: 12px;
+    font-weight:bold;
+}
+
+.striped:nth-child(2n) {
+    background-color: rgb(242, 242, 242);
+}
+
+.mdtext {
+    font-size: 11px;
+}
+
+.smalltext {
+    font-size:9px;
+}
+
+.approvetable tr td  {
+    padding:0;
+    margin:0;
+    font-size: 9px;
+}
+
+.productionapprovetable {
+    border: 1px solid green;
+}
+
+.agreen {
+    color: rgb(64, 120, 85);
+}
+
+.abrightblue {
+    color: #0078D4;
+}
+
+.agold {
+    color: #9c8321;
+}
+
+.apurple {
+    color: rgb(133, 64, 133);
+}
+
+.aorange {
+    color: rgb(202, 80, 16);
+}
+
+.ared {
+    color: rgb(164, 38, 44);
+}
+

@@ -1,0 +1,22 @@
+﻿@model Post
+@{
+
+}
+
+<div>
+    <form asp-controller="Home" asp-action="Edit" method="post">
+        <div class="input-group mb-3">
+            <label id="titleInputLable">Title</label>
+            <input asp-for="Title" class="form-control" placeholder="Title" aria-label="Title" aria-describedby="titleInputLable" />
+        </div>
+         <div class="input-group mb-3">
+            <label id="titleInputBody">Body</label>
+            <input asp-for="Body" class="form-control" placeholder="Text" aria-label="Body" aria-describedby="titleInputBody" />
+        </div>
+        <div class="input-group mb-3">
+            <label id="titleInputDate">Created</label>
+            <input asp-for="Created" class="form-control" placeholder="Date" aria-label="Date" aria-describedby="titleInputDate" />
+        </div>
+        <input type="submit" value="Submit" />
+    </form>
+</div>

@@ -1,0 +1,78 @@
+﻿@page
+@model HappeningNow.Pages.PoolEntries.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>PoolEntries</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+
+<form method="get">
+    <div class="form-group">
+        <label asp-for="SelectedPoolId" class="control-label"></label>
+        <select asp-for="SelectedPoolId" class="form-control" asp-items="Model.PoolItems"></select>
+    </div>
+    <div class="form-group">
+        <input type="submit" value="Filter" class="btn btn-primary" />
+    </div>
+</form>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Pool
+            </th>
+            <th>
+                Team
+            </th>
+            <th>
+                Discipline
+            </th>
+            <th>
+                <a asp-page="./Index" asp-route-sortOrder="@Model.PoolOrder">Order</a>
+            </th>
+            <th>
+                Mp3 File Path
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.PoolEntries)
+        {
+            <tr>
+                <td>
+                    @item.Pool.Name
+                </td>
+                <td>
+                    @item.Team.Name
+                </td>
+                <td>
+                    @item.Discipline.Name
+                </td>
+                <td>
+                    @item.Order
+                </td>
+                <td>
+                    @item.Mp3FilePath
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

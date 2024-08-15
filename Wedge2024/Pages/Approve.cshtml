@@ -1,0 +1,327 @@
+﻿@page
+@model PrivacyModel
+@{
+    ViewData["Title"] = "Approve";
+}
+
+
+<section class="text-center">
+    @* Production name is already written out in the top *@
+    <p>SON OCH FAR</p>
+    @* Document Name also written out by default*@
+    <h4>GODKÄNNANDEVYN</h4>
+</section>
+
+@* Menu buttons and date picker *@
+<section class="menugroup text-center">
+        <div id="headerrow" class="row mb-0 mb-2">
+                
+            @*  Left menu *@
+            <div class="col-12 col-md-4">
+                <div class="row">
+                    @* Open modal: approvalChangeMarkedRowsModal *@
+                    <div class="col-4 col-lg-3">
+                        <button id="approvalChangeMarkedRowsBtn" type="button" class="btn menuitem menuitemSm">
+                            <i class="fas fa-edit abrightblue"></i>
+                        </button>
+                        <p>Change marked rows</p> @* Ändra markerade rader *@
+                        </div>
+                        @*   Open modal: approvalSplitRowsModal *@
+                    <div class="col-4 col-lg-3">
+                            <button id="approvalSplitRowsBtn" type="button" class="btn menuitem menuitemSm">
+                                <i class="fas fa-cut apurple"></i>
+                            </button>
+                        <p>Split marked rows</p> @* Dela markerade rader *@
+                    </div>
+                        @* Open modal: approvalAddTimereport *@
+                    <div class="col-4 col-lg-3">
+                        <button id="approvalAddTimereport" type="button"  class="btn menuitem menuitemSm">
+                            <i class="fas fa-plus agold"></i>
+                        </button>
+                    <p>Add Timereport</p>  @* Lägg till tidrapport *@
+                    </div>
+                </div>
+            </div>
+                
+
+            @* Datepicker *@
+            <div class="col-12 col-md-4">
+                    
+                <div class="btn-group mr-2" role="group" aria-label="First group">
+                    <button type="button" class="btn menuitem menuitemMd agold" id="dateNavPrev"><i class="fas fa-fa fa-angle-left  " style="" data-fa-transform=""></i></button>
+                    <button type="button" class="btn menuitem menuitemMd agold mx-1" id="dateNavGo"><i class="fas fa-calendar-alt" data-placement="top" title="V&#228;lj Datum"></i></button>
+                    <button type="button" class="btn menuitem menuitemMd agold" id="dateNavNext"><i class="fas fa-fa fa-angle-right  " style="" data-fa-transform=""></i></button>
+                </div>
+            <div><b class="mp-0" id="dateNavWeekText">Måndag 17 december</b></div>
+            </div>
+
+            @*  Right menu *@
+            <div class="col-12 col-md-4">
+                <div class="row">
+                    @*   Approve selected (checked rows) *@
+                    <div class="col-4 col-lg-3">
+                        <button id="approvalSplitRowsBtn" type="button" class="btn menuitem menuitemSm">
+                            <i class="fas fa-check-circle agreen"></i>
+                        </button>
+                        <p>Approve Selected</p> @* Godkänn valda *@
+                    </div>
+                    @* Approve all on this day (no checkboxes checked required) *@
+                    <div class="col-4 col-lg-3">
+                        <button id="approvalAddTimereport" type="button" class="btn menuitem menuitemSm">
+                            <i class="fas fa-check-double agreen"></i>
+                        </button>
+                        <p>Approve all</p> @* Godkänn alla *@
+                    </div>
+                    @* Save Changes *@
+                <div class="col-4 col-lg-3">
+                        <button id="approvalChangeMarkedRowsBtn" type="button" class="btn menuitem menuitemSm">
+                            <i class="fas fa-save agold"></i>
+                        </button>
+                        <p>Save Changes</p> @* Spara ändringar *@
+                    </div>
+                    @* Regret Changes *@
+                <div class="col-4 col-lg-3">
+                        <button id="approvalChangeMarkedRowsBtn" type="button" class="btn menuitem menuitemSm">
+                            <i class="fas fa-backspace ared"></i>
+                        </button>
+                        <p>Regret Changes</p> @* Ångra ändringar *@
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
+
+
+@* For each production team (sorted by team sort order) *@
+<section class="menugroup">
+    <div><p class="smalllabel">SKÅDESPELARE</p></div>
+  
+    @* For each person with a timereport - order =last name *@
+    <div class="row mp-0 striped personrow">
+        
+        @* Col-1 name, time etc *@
+        <div class="col-12 col-lg-4 mp-0 my-auto mt-2 mt-md-0 colfirst">
+            
+            <div class="row mp-0 my-auto" id="">
+               
+                @*  Show Prod appointments & select row checkbox *@
+                <div class="col-2 mp-0 my-auto">
+                    <button type="button" class="btn p-0 px-2 btn-outline-secondary toggleProdbtn">
+                                <i class="fas fa-chevron-down mt-0"></i>
+                    </button>
+                    <input type="checkbox" aria-label="Checkbox for selecting this timereport" data-toggle="tooltip" data-placement="top" title="Select">
+                 
+                </div>
+                @* Name *@
+                <div class="col-5 my-auto mp-0">
+                    <h5 class="my-auto smalllabel  mp-0">Anders Börje Andersson</h5>
+                </div>
+               
+                <div class="col-5 mp-0 my-auto">
+                    <div class="input-group">
+                        @* Start Time *@
+                        <div class="input-group-prepend">
+                            <button class="btn btn-outline-secondary mp-0" data-toggle="tooltip" data-placement="top" title="Start Time" type="button"> 11:00</button>
+                        </div>
+                        -
+                        @* End Time *@
+                        <div class="input-group-prepend">
+                            <button class="btn btn-outline-secondary mp-0" data-toggle=" tooltip" data-placement="top" title="End Time" type="button">12:00</button>
+                        </div>
+                        @* Work Time Duration HH:MM read only *@
+                        <div class=" my-auto">
+                            <span class="badge bg-dark smalllabel mx-1 px-1" data-toggle="tooltip" data-placement="top" title="Duration">08:00</span>
+                        </div>
+                    </div>
+                </div>
+
+
+              
+
+                <div class="row mp-0">
+                    
+                    <div class="col-2 mp-0 my-auto">
+                        <div class="btn-group btn-group-sm mr-1" role="group">
+                            <button id="approvalcodebtn" type="button" class="btn btn-secondary btn-sm dropdown-toggle mp-0" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <small class="mp-0"><i class="fas fa-pen"></i></small>
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="approvalcodebtn">
+                                <a class="dropdown-item" href="#">Code 1</a>
+                                <a class="dropdown-item" href="#">code 2</a>
+                            </div>
+                        </div>
+                     </div>
+
+                    @*  Status Initials & Activity*@
+                    <div class="col-5 mp-0 my-auto">
+                        
+                        @* CASE *@
+                        @*Not happened yet*@   @* <i class="fas fa-calendar abrightblue" data-toggle="tooltip" data-placement="top" title="Future"></i> *@  @* When date is today - Hide *@
+                        @*Not Approved *@   @* <i class="fas fa-lock-open agreen" data-toggle="tooltip" data-placement="top" title="Not Approved"></i>  *@  @* When date is today and forward - show   - When approved - hide*@
+                        @*Approved *@<i class="fas fa-check-circle agreen" data-toggle="tooltip" data-placement="top" title="Approved"></i> @* If approved show - never hide *@
+                        @*Attested*@<i class="fas fa-lock ared" data-toggle="tooltip" data-placement="top" title="Attested"></i> @* If attested show -never hide *@
+                        
+                        <span class="badge bg-dark px-1">JML</span> @* initials -who approved? (Initials for who attested not necessary)*@
+                        <span class="my-auto ml-5 mdtext">Föreställning</span> @* IF Collection Activity = true: Collection Activity Name ELSE IF Production Appointment true: Production Activity Name ELSE: no value *@
+                    </div>
+
+                    @* Break *@
+                    <div class="col-4 mp-0 my-auto mx-auto">
+                        <button class="btn btn-outline-secondary mp-0 px-2" data-toggle="tooltip" data-placement="top" title="Break" type="button"> 00:30</button>
+                    </div>
+                </div>
+
+              
+            </div>
+
+
+            
+        </div>
+
+        @* col-2  *@
+        <div class="col-12 col-lg-4 mp-0 my-auto mt-2 mt-md-0 colsecond">
+
+            <div class="row mp-0">
+
+                @* Balance Table *@
+                <div class="col-8 mp-0 my-auto">
+                    <table class="table table-small my-auto table-striped approvetable">
+                        <thead>
+                            <tr>
+                                <td>Närvarotid</td>
+                                <td>2:25</td>
+                                <td>Skådespelare-2700</td>
+                            </tr>
+                            <tr style="color:red;">
+                                <td class="ared">OB</td>
+                                <td>1:30</td>
+                                <td>Skådespelare-2700</td>
+                            </tr>
+                            <tr>
+                                <td>Ordinarie Arbetstid</td>
+                                <td>3:00</td>
+                                <td>Skådespelare-2700</td>
+                            </tr>
+                    </table>
+                </div>
+
+                @* Code *@
+                <div class="col-4 my-auto">
+                    <div class="col-12 mp-0 my-auto" style="overflow-x:clip; overflow-y:visible;">
+                        <div class="btn-group btn-group-sm ml-1" role="group">
+                            <button id="approvalcodebtn" type="button" class="btn btn-secondary btn-sm dropdown-toggle btn-block text-left text-start mdtext" data-bs-toggle="dropdown" data-toggle="dropdown" aria-expanded="false">
+                                12345adsfgfahfhafhfhdwrtraPetratestar<br />
+                                <small class="smalltext">code</small>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="approvalcodebtn">
+                                <li><a class="dropdown-item" href="#">Code 1</a></li>
+                                <li><a class="dropdown-item" href="#">Code 2</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+          
+
+        </div>
+
+      @* col 3 cost place prod code proj code *@
+        <div class="col-12 col-lg-4 mp-0 my-auto mt-2 mt-md-0">
+            <div class="row mp-0 my-auto mx-0">
+                
+                @* Production Code *@
+                <div class="col-4 my-auto">
+                    <div class="col-12 mp-0 my-auto" style="overflow-x:clip; overflow-y:visible;">
+                        <div class="btn-group btn-group-sm ml-1" role="group">
+                            <button id="approvalcodebtn" type="button" class="btn btn-secondary btn-sm dropdown-toggle btn-block text-left text-start mdtext" data-bs-toggle="dropdown" data-toggle="dropdown" aria-expanded="false">
+                                12345adsfgfahfhafhfhdwrtraPetratestar<br />
+                                <small class="smalltext">Prod.code</small>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="approvalcodebtn">
+                                <li><a class="dropdown-item" href="#">Code 1</a></li>
+                                <li><a class="dropdown-item" href="#">Code 2</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                @* Project Code *@
+                <div class="col-4 my-auto">
+                    <div class="col-12 mp-0 my-auto" style="overflow-x:clip; overflow-y:visible;">
+                        <div class="btn-group btn-group-sm ml-1" role="group">
+                            <button id="approvalcodebtn" type="button" class="btn btn-secondary btn-sm dropdown-toggle btn-block text-left text-start mdtext" data-bs-toggle="dropdown" data-toggle="dropdown" aria-expanded="false">
+                                12345adsfgfahfhafhfhdwrtraPetratestar<br />
+                                <small class="smalltext">Proj.code</small>
+                            </button>
+                            <ul class="dropdown-menu" aria-labelledby="approvalcodebtn">
+                                <li><a class="dropdown-item" href="#">Code 1</a></li>
+                                <li><a class="dropdown-item" href="#">Code 2</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                @*  Comment *@
+                <div class="col-4 my-auto">
+                    <small class="smalltext">Comment</small>
+                    <div class="input-group input-group-sm ml-0">
+                        <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" data-toggle="tooltip" data-placement="top" title="The Actual Comment">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        @* col 4 production appointments *@
+        <div class="col-12 col-lg-4 offset-lg-4 prodInfo collapse pb-1">
+            <table class="table table-small my-auto table-striped approvetable productionapprovetable">
+                <thead>
+                   
+                    @* For each porduction appointment within the timwspan of the schedule/timereport*@
+                    <tr>
+                        <td>15:00-17:00</td> @* Klockslag från - till *@
+                        <td>Repetition</td>  @* Aktivitet *@
+                        <td>Son och Far</td> @* Produktion *@
+                    </tr>
+                    @* end foreach *@
+
+               @*      Democopys *@
+                    <tr">
+                        <td>17:00-18:00</td> @* Klockslag från - till *@
+                        <td>Repetition</td>  @* Aktivitet *@
+                        <td>Son och Far</td> @* Produktion *@
+                    </tr>
+                    <tr>
+                        <td>18:00-20:00</td> @* Klockslag från - till *@
+                        <td>Föreställning</td>  @* Aktivitet *@
+                        <td>Son och Far</td> @* Produktion *@
+                    </tr>
+                    @* end demo coppies *@
+            </table>
+        </div>
+    </div>
+
+
+ 
+
+</section>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+    $(function () {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+
+          
+    // Open Production appointment info
+    $(document).on('click', '.toggleProdbtn', function () {
+        var personRow = $(this).closest('.personrow');
+        var targetDiv = personRow.find('.prodInfo');
+        targetDiv.toggleClass('collapse');
+    });
+
+
+
+
+
+ </script>
