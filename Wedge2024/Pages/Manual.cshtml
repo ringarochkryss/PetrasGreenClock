@@ -1,0 +1,953 @@
+﻿@page
+@model Wedge2024.Pages.ManualModel
+@{
+    ViewData["Title"] = "Timewise Learn";
+}
+
+
+<section class="text-center">
+    @* Production name is already written out in the top *@
+    <p>Timewise</p>
+    @* Document Name also written out by default*@
+    <h4>LEARN</h4>
+</section>
+
+@* Menu buttons and date picker *@
+
+@* Schemaläggning *@
+<section class="menugroup text-center">
+    <h5 class=""> SCHEMALÄGGNING</h5>
+    <div class="row">
+        @* Kalendergrupp för Schemaläggning *@
+        <div class="col-md-4 col-xl-3">
+            <a href="#" class="video-link text-center" data-video-src="https://youtu.be/AD3b7WVvrPc?vq=hd720">
+                <div class="card selectbox">
+                    <div class="card-header card-header-learn">
+                        <p class="text-light mt-3 mb-0 pb-0 smalltext">Schemalägg personal i desktop</p>
+                        <b class="text-light mt-0 pt-0 smalllabel">SKAPA KALENDERGRUPP</b>
+
+                        <div class="row mt-2">
+                            <div class="col-3 offset-3">
+                                <span id="approvalSplitRowsBtn" class="btn menuitem menuitemSm menuitemLearn text-light">
+                                    <i class="fas fa-play agrey fa-xl"></i>
+                                </span>
+                            </div>
+
+                            <div class="col-3">
+                                <span id="approvalSplitRowsBtn" class="btn menuitem menuitemSm menuitemLearn text-light">
+                                    <i class="fas fa-desktop agrey fa-lg"></i>
+                                </span>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <small>I den här videon visar jag hur du skapar en kalendergrupp för att effektivt arbeta med personalens scheman. Jag går igenom steg för steg hur du skapar och anpassar kalendern för att användas som ett schemaläggningsverktyg. Vi kommer också att titta på hur du lägger till personer i kalendern och hur du kan se deras arbetstider och produktionsbokningar. </small>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        @*Produktionsbunden personal *@
+         <div class="col-md-4 col-xl-3">
+        <a href="#" class="video-link text-center" data-video-src="https://youtu.be/PJBqwnwaJls?vq=hd720">
+            <div class="card selectbox">
+                <div class="card-header card-header-learn">
+                    <p class="text-light mt-3 mb-0 pb-0 smalltext">Produktionsbunden personal</p>
+                    <b class="text-light mt-0 pt-0 smalllabel">SKAPA SCHEMA FRÅN PLANERING</b>
+                
+                    <div class="row mt-2">
+                        <div class="col-3 offset-3">
+                                <span id="approvalSplitRowsBtn" class="btn menuitem menuitemSm menuitemLearn text-light">
+                                <i class="fas fa-play agrey fa-xl"></i>
+                                </span>
+                        </div>
+                   
+                        <div class="col-3">
+                            <span id="approvalSplitRowsBtn" class="btn menuitem menuitemSm menuitemLearn text-light">
+                                <i class="fas fa-desktop agrey fa-lg"></i>
+                            </span>
+                        </div>
+                       
+                    </div>
+                </div>
+                <div class="card-body">
+                    <small>I denna video visar jag hur man skapar schema från planering för produktionsbunden personal. Jag visar hur man lägger in rast automatisk och hur man kan ställa in så att tid läggs till före och efter pass som skapats utifrån olika produktionsaktiviteter. </small>
+                </div>
+            </div>
+        </a>
+    </div>
+      
+        @*Teknisk Personal *@
+        <div class="col-md-4 col-xl-3">
+            <a href="#" class="video-link text-center" data-video-src="https://youtu.be/fCWG0C9Ft-s?vq=hd720">
+                <div class="card selectbox">
+                    <div class="card-header card-header-learn">
+                        <p class="text-light mt-3 mb-0 pb-0 smalltext">Teknisk personal</p>
+                        <b class="text-light mt-0 pt-0 smalllabel">SKAPA SCHEMA FRÅN AVDELNING</b>
+
+                        <div class="row mt-2">
+                            <div class="col-3 offset-3">
+                                <span id="approvalSplitRowsBtn" class="btn menuitem menuitemSm menuitemLearn text-light">
+                                    <i class="fas fa-play agrey fa-xl"></i>
+                                </span>
+                            </div>
+
+                            <div class="col-3">
+                                <span id="approvalSplitRowsBtn" class="btn menuitem menuitemSm menuitemLearn text-light">
+                                    <i class="fas fa-desktop agrey fa-lg"></i>
+                                </span>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <small>I denna video lär du dig skapa och redigera arbetspass i Timewise för att schemalägga personal på en specifik avdelning. Filmen går igenom stegen för att skapa ett arbetspass, ge det ett namn och ange arbetstider. Du lär dig även lägga till raster i schemat. Detta är en användbar metod för att effektivt schemalägga och organisera arbetspass för anställda i Timewise. </small>
+                    </div>
+                </div>
+            </a>
+        </div>
+      @*   Admin *@
+        <div class="col-md-4 col-xl-3">
+                <a href="#" class="video-link text-center" data-video-src="https://youtu.be/tswr-aUOPRo?vq=hd720">
+                <div class="card selectbox">
+                    <div class="card-header card-header-learn">
+                        <p class="text-light mt-3 mb-0 pb-0 smalltext">Administrativ personal</p>
+                        <b class="text-light mt-0 pt-0 smalllabel">SKAPA SCHEMA FRÅN EN MALL</b>
+
+                        <div class="row mt-2">
+                            <div class="col-3 offset-3">
+                                <span id="approvalSplitRowsBtn" class="btn menuitem menuitemSm menuitemLearn text-light">
+                                    <i class="fas fa-play agrey fa-xl"></i>
+                                </span>
+                            </div>
+
+                            <div class="col-3">
+                                <span id="approvalSplitRowsBtn" class="btn menuitem menuitemSm menuitemLearn text-light">
+                                    <i class="fas fa-desktop agrey fa-lg"></i>
+                                </span>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="card-body">
+                            <small>I den här videon visar jag hur man kan schemalägga med hjälp av en schemamall. Jag visar steg för steg hur jag har använt en schemamall för att skapa ett schema för veckan. Vi går igenom hur man hittar och använder schemamallar, hur man kopplar en mall till en anställd och hur man skapar ett schema från en mall. Detta är ett snabbt och enkelt sätt att schemalägga, särskilt för de som har enkla schematider som upprepas varje vecka eller varannan vecka. </small>
+                        </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+
+@* Produktionsplanering *@
+<section class="menugroup text-center">
+    <h5 class=""> PRODUKTION</h5>
+    <div class="row">
+        @* Produktionskalendern *@
+        <div class="col-md-4 col-xl-3">
+            <a href="#" class="video-link text-center" data-video-src="https://youtu.be/AD3b7WVvrPc?vq=hd720">
+                <div class="card selectbox">
+                    <div class="card-header card-header-learn-prod">
+                        <p class="text-light mt-3 mb-0 pb-0 smalltext">Produktion</p>
+                        <b class="text-light mt-0 pt-0 smalllabel">Kalendern</b>
+
+                        <div class="row mt-2">
+                            <div class="col-3 offset-3">
+                                <span id="approvalSplitRowsBtn" class="btn menuitem menuitemSm menuitemLearn text-light">
+                                    <i class="fas fa-play agrey fa-xl"></i>
+                                </span>
+                            </div>
+
+                            <div class="col-3">
+                                <span id="approvalSplitRowsBtn" class="btn menuitem menuitemSm menuitemLearn text-light">
+                                    <i class="fas fa-desktop agrey fa-lg"></i>
+                                </span>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <small>I den här videon visar jag hur du skapar en kalendergrupp för att effektivt arbeta med personalens scheman. Jag går igenom steg för steg hur du skapar och anpassar kalendern för att användas som ett schemaläggningsverktyg. Vi kommer också att titta på hur du lägger till personer i kalendern och hur du kan se deras arbetstider och produktionsbokningar. </small>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        @*Lag, uppgift och bemanning *@
+        <div class="col-md-4 col-xl-3">
+            <a href="#" class="video-link text-center" data-video-src="https://youtu.be/PJBqwnwaJls?vq=hd720">
+                <div class="card selectbox">
+                    <div class="card-header card-header-learn-prod">
+                        <p class="text-light mt-3 mb-0 pb-0 smalltext">Produktion</p>
+                        <b class="text-light mt-0 pt-0 smalllabel">LAG, UPPGIFT, BEMANNING</b>
+
+                        <div class="row mt-2">
+                            <div class="col-3 offset-3">
+                                <span id="approvalSplitRowsBtn" class="btn menuitem menuitemSm menuitemLearn text-light">
+                                    <i class="fas fa-play agrey fa-xl"></i>
+                                </span>
+                            </div>
+
+                            <div class="col-3">
+                                <span id="approvalSplitRowsBtn" class="btn menuitem menuitemSm menuitemLearn text-light">
+                                    <i class="fas fa-desktop agrey fa-lg"></i>
+                                </span>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <small>I denna video visar jag hur man skapar schema från planering för produktionsbunden personal. Jag visar hur man lägger in rast automatisk och hur man kan ställa in så att tid läggs till före och efter pass som skapats utifrån olika produktionsaktiviteter. </small>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        @*Aktiviteter *@
+        <div class="col-md-4 col-xl-3">
+            <a href="#" class="video-link text-center" data-video-src="https://youtu.be/fCWG0C9Ft-s?vq=hd720">
+                <div class="card selectbox">
+                    <div class="card-header card-header-learn-prod">
+                        <p class="text-light mt-3 mb-0 pb-0 smalltext">Produktion</p>
+                        <b class="text-light mt-0 pt-0 smalllabel">Aktiviteter</b>
+
+                        <div class="row mt-2">
+                            <div class="col-3 offset-3">
+                                <span id="approvalSplitRowsBtn" class="btn menuitem menuitemSm menuitemLearn text-light">
+                                    <i class="fas fa-play agrey fa-xl"></i>
+                                </span>
+                            </div>
+
+                            <div class="col-3">
+                                <span id="approvalSplitRowsBtn" class="btn menuitem menuitemSm menuitemLearn text-light">
+                                    <i class="fas fa-desktop agrey fa-lg"></i>
+                                </span>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <small>I denna video lär du dig skapa och redigera arbetspass i Timewise för att schemalägga personal på en specifik avdelning. Filmen går igenom stegen för att skapa ett arbetspass, ge det ett namn och ange arbetstider. Du lär dig även lägga till raster i schemat. Detta är en användbar metod för att effektivt schemalägga och organisera arbetspass för anställda i Timewise. </small>
+                    </div>
+                </div>
+            </a>
+        </div>
+        @* Rapporter *@
+        <div class="col-md-4 col-xl-3">
+            <a href="#" class="video-link text-center" data-video-src="https://youtu.be/tswr-aUOPRo?vq=hd720">
+                <div class="card selectbox">
+                    <div class="card-header card-header-learn-prod">
+                        <p class="text-light mt-3 mb-0 pb-0 smalltext">Produktion</p>
+                        <b class="text-light mt-0 pt-0 smalllabel">RAPPORTER</b>
+
+                        <div class="row mt-2">
+                            <div class="col-3 offset-3">
+                                <span id="approvalSplitRowsBtn" class="btn menuitem menuitemSm menuitemLearn text-light">
+                                    <i class="fas fa-play agrey fa-xl"></i>
+                                </span>
+                            </div>
+
+                            <div class="col-3">
+                                <span id="approvalSplitRowsBtn" class="btn menuitem menuitemSm menuitemLearn text-light">
+                                    <i class="fas fa-desktop agrey fa-lg"></i>
+                                </span>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <small>I den här videon visar jag hur man kan schemalägga med hjälp av en schemamall. Jag visar steg för steg hur jag har använt en schemamall för att skapa ett schema för veckan. Vi går igenom hur man hittar och använder schemamallar, hur man kopplar en mall till en anställd och hur man skapar ett schema från en mall. Detta är ett snabbt och enkelt sätt att schemalägga, särskilt för de som har enkla schematider som upprepas varje vecka eller varannan vecka. </small>
+                    </div>
+                </div>
+            </a>
+        </div>
+        @* Milstolpar *@
+        <div class="col-md-4 col-xl-3">
+            <a href="#" class="video-link text-center" data-video-src="https://youtu.be/tswr-aUOPRo?vq=hd720">
+                <div class="card selectbox">
+                    <div class="card-header card-header-learn-prod">
+                        <p class="text-light mt-3 mb-0 pb-0 smalltext">Produktion</p>
+                        <b class="text-light mt-0 pt-0 smalllabel">MILSTOLPAR</b>
+
+                        <div class="row mt-2">
+                            <div class="col-3 offset-3">
+                                <span id="approvalSplitRowsBtn" class="btn menuitem menuitemSm menuitemLearn text-light">
+                                    <i class="fas fa-play agrey fa-xl"></i>
+                                </span>
+                            </div>
+
+                            <div class="col-3">
+                                <span id="approvalSplitRowsBtn" class="btn menuitem menuitemSm menuitemLearn text-light">
+                                    <i class="fas fa-desktop agrey fa-lg"></i>
+                                </span>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <small>I den här videon visar jag hur man kan schemalägga med hjälp av en schemamall. Jag visar steg för steg hur jag har använt en schemamall för att skapa ett schema för veckan. Vi går igenom hur man hittar och använder schemamallar, hur man kopplar en mall till en anställd och hur man skapar ett schema från en mall. Detta är ett snabbt och enkelt sätt att schemalägga, särskilt för de som har enkla schematider som upprepas varje vecka eller varannan vecka. </small>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        @* Skapa en ny Produktion + info *@
+        <div class="col-md-4 col-xl-3">
+            <a href="#" class="video-link text-center" data-video-src="https://youtu.be/tswr-aUOPRo?vq=hd720">
+                <div class="card selectbox">
+                    <div class="card-header card-header-learn-prod">
+                        <p class="text-light mt-3 mb-0 pb-0 smalltext">Produktion</p>
+                        <b class="text-light mt-0 pt-0 smalllabel">SKAPA, REDIGERA, INFO</b>
+
+                        <div class="row mt-2">
+                            <div class="col-3 offset-3">
+                                <span id="approvalSplitRowsBtn" class="btn menuitem menuitemSm menuitemLearn text-light">
+                                    <i class="fas fa-play agrey fa-xl"></i>
+                                </span>
+                            </div>
+
+                            <div class="col-3">
+                                <span id="approvalSplitRowsBtn" class="btn menuitem menuitemSm menuitemLearn text-light">
+                                    <i class="fas fa-desktop agrey fa-lg"></i>
+                                </span>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <small>I den här videon visar jag hur man kan schemalägga med hjälp av en schemamall. Jag visar steg för steg hur jag har använt en schemamall för att skapa ett schema för veckan. Vi går igenom hur man hittar och använder schemamallar, hur man kopplar en mall till en anställd och hur man skapar ett schema från en mall. Detta är ett snabbt och enkelt sätt att schemalägga, särskilt för de som har enkla schematider som upprepas varje vecka eller varannan vecka. </small>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        @* Mallar *@
+        <div class="col-md-4 col-xl-3">
+            <a href="#" class="video-link text-center" data-video-src="https://youtu.be/tswr-aUOPRo?vq=hd720">
+                <div class="card selectbox">
+                    <div class="card-header card-header-learn-prod">
+                        <p class="text-light mt-3 mb-0 pb-0 smalltext">Produktion</p>
+                        <b class="text-light mt-0 pt-0 smalllabel">MALLAR</b>
+
+                        <div class="row mt-2">
+                            <div class="col-3 offset-3">
+                                <span id="approvalSplitRowsBtn" class="btn menuitem menuitemSm menuitemLearn text-light">
+                                    <i class="fas fa-play agrey fa-xl"></i>
+                                </span>
+                            </div>
+
+                            <div class="col-3">
+                                <span id="approvalSplitRowsBtn" class="btn menuitem menuitemSm menuitemLearn text-light">
+                                    <i class="fas fa-desktop agrey fa-lg"></i>
+                                </span>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <small>I den här videon visar jag hur man kan schemalägga med hjälp av en schemamall. Jag visar steg för steg hur jag har använt en schemamall för att skapa ett schema för veckan. Vi går igenom hur man hittar och använder schemamallar, hur man kopplar en mall till en anställd och hur man skapar ett schema från en mall. Detta är ett snabbt och enkelt sätt att schemalägga, särskilt för de som har enkla schematider som upprepas varje vecka eller varannan vecka. </small>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        @* Bemanna aktiviteter *@
+        <div class="col-md-4 col-xl-3">
+            <a href="#" class="video-link text-center" data-video-src="https://youtu.be/tswr-aUOPRo?vq=hd720">
+                <div class="card selectbox">
+                    <div class="card-header card-header-learn-prod">
+                        <p class="text-light mt-3 mb-0 pb-0 smalltext">Produktion</p>
+                        <b class="text-light mt-0 pt-0 smalllabel">Aktivitetsbemanning</b>
+
+                        <div class="row mt-2">
+                            <div class="col-3 offset-3">
+                                <span id="approvalSplitRowsBtn" class="btn menuitem menuitemSm menuitemLearn text-light">
+                                    <i class="fas fa-play agrey fa-xl"></i>
+                                </span>
+                            </div>
+
+                            <div class="col-3">
+                                <span id="approvalSplitRowsBtn" class="btn menuitem menuitemSm menuitemLearn text-light">
+                                    <i class="fas fa-desktop agrey fa-lg"></i>
+                                </span>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <small>I den här videon visar jag hur man kan schemalägga med hjälp av en schemamall. Jag visar steg för steg hur jag har använt en schemamall för att skapa ett schema för veckan. Vi går igenom hur man hittar och använder schemamallar, hur man kopplar en mall till en anställd och hur man skapar ett schema från en mall. Detta är ett snabbt och enkelt sätt att schemalägga, särskilt för de som har enkla schematider som upprepas varje vecka eller varannan vecka. </small>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        @* Detaljplanering *@
+        <div class="col-md-4 col-xl-3">
+            <a href="#" class="video-link text-center" data-video-src="https://youtu.be/tswr-aUOPRo?vq=hd720">
+                <div class="card selectbox">
+                    <div class="card-header card-header-learn-prod">
+                        <p class="text-light mt-3 mb-0 pb-0 smalltext">Produktion</p>
+                        <b class="text-light mt-0 pt-0 smalllabel">Detaljplanering</b>
+
+                        <div class="row mt-2">
+                            <div class="col-3 offset-3">
+                                <span id="approvalSplitRowsBtn" class="btn menuitem menuitemSm menuitemLearn text-light">
+                                    <i class="fas fa-play agrey fa-xl"></i>
+                                </span>
+                            </div>
+
+                            <div class="col-3">
+                                <span id="approvalSplitRowsBtn" class="btn menuitem menuitemSm menuitemLearn text-light">
+                                    <i class="fas fa-desktop agrey fa-lg"></i>
+                                </span>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <small>I den här videon visar jag hur man kan schemalägga med hjälp av en schemamall. Jag visar steg för steg hur jag har använt en schemamall för att skapa ett schema för veckan. Vi går igenom hur man hittar och använder schemamallar, hur man kopplar en mall till en anställd och hur man skapar ett schema från en mall. Detta är ett snabbt och enkelt sätt att schemalägga, särskilt för de som har enkla schematider som upprepas varje vecka eller varannan vecka. </small>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+
+@* Tidrapportering Attestering och Gokännande *@
+<section class="menugroup text-center">
+    <h5 class=""> SCHEMALÄGGNING</h5>
+    <div class="row">
+        @* Kalendergrupp för Schemaläggning *@
+        <div class="col-md-4 col-xl-3">
+            <a href="#" class="video-link text-center" data-video-src="https://youtu.be/AD3b7WVvrPc?vq=hd720">
+                <div class="card selectbox">
+                    <div class="card-header card-header-learn">
+                        <p class="text-light mt-3 mb-0 pb-0 smalltext">Schemalägg personal i desktop</p>
+                        <b class="text-light mt-0 pt-0 smalllabel">SKAPA KALENDERGRUPP</b>
+
+                        <div class="row mt-2">
+                            <div class="col-3 offset-3">
+                                <span id="approvalSplitRowsBtn" class="btn menuitem menuitemSm menuitemLearn text-light">
+                                    <i class="fas fa-play agrey fa-xl"></i>
+                                </span>
+                            </div>
+
+                            <div class="col-3">
+                                <span id="approvalSplitRowsBtn" class="btn menuitem menuitemSm menuitemLearn text-light">
+                                    <i class="fas fa-desktop agrey fa-lg"></i>
+                                </span>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <small>I den här videon visar jag hur du skapar en kalendergrupp för att effektivt arbeta med personalens scheman. Jag går igenom steg för steg hur du skapar och anpassar kalendern för att användas som ett schemaläggningsverktyg. Vi kommer också att titta på hur du lägger till personer i kalendern och hur du kan se deras arbetstider och produktionsbokningar. </small>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        @*Produktionsbunden personal *@
+        <div class="col-md-4 col-xl-3">
+            <a href="#" class="video-link text-center" data-video-src="https://youtu.be/PJBqwnwaJls?vq=hd720">
+                <div class="card selectbox">
+                    <div class="card-header card-header-learn">
+                        <p class="text-light mt-3 mb-0 pb-0 smalltext">Produktionsbunden personal</p>
+                        <b class="text-light mt-0 pt-0 smalllabel">SKAPA SCHEMA FRÅN PLANERING</b>
+
+                        <div class="row mt-2">
+                            <div class="col-3 offset-3">
+                                <span id="approvalSplitRowsBtn" class="btn menuitem menuitemSm menuitemLearn text-light">
+                                    <i class="fas fa-play agrey fa-xl"></i>
+                                </span>
+                            </div>
+
+                            <div class="col-3">
+                                <span id="approvalSplitRowsBtn" class="btn menuitem menuitemSm menuitemLearn text-light">
+                                    <i class="fas fa-desktop agrey fa-lg"></i>
+                                </span>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <small>I denna video visar jag hur man skapar schema från planering för produktionsbunden personal. Jag visar hur man lägger in rast automatisk och hur man kan ställa in så att tid läggs till före och efter pass som skapats utifrån olika produktionsaktiviteter. </small>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        @*Teknisk Personal *@
+        <div class="col-md-4 col-xl-3">
+            <a href="#" class="video-link text-center" data-video-src="https://youtu.be/fCWG0C9Ft-s?vq=hd720">
+                <div class="card selectbox">
+                    <div class="card-header card-header-learn">
+                        <p class="text-light mt-3 mb-0 pb-0 smalltext">Teknisk personal</p>
+                        <b class="text-light mt-0 pt-0 smalllabel">SKAPA SCHEMA FRÅN AVDELNING</b>
+
+                        <div class="row mt-2">
+                            <div class="col-3 offset-3">
+                                <span id="approvalSplitRowsBtn" class="btn menuitem menuitemSm menuitemLearn text-light">
+                                    <i class="fas fa-play agrey fa-xl"></i>
+                                </span>
+                            </div>
+
+                            <div class="col-3">
+                                <span id="approvalSplitRowsBtn" class="btn menuitem menuitemSm menuitemLearn text-light">
+                                    <i class="fas fa-desktop agrey fa-lg"></i>
+                                </span>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <small>I denna video lär du dig skapa och redigera arbetspass i Timewise för att schemalägga personal på en specifik avdelning. Filmen går igenom stegen för att skapa ett arbetspass, ge det ett namn och ange arbetstider. Du lär dig även lägga till raster i schemat. Detta är en användbar metod för att effektivt schemalägga och organisera arbetspass för anställda i Timewise. </small>
+                    </div>
+                </div>
+            </a>
+        </div>
+        @*   Admin *@
+        <div class="col-md-4 col-xl-3">
+            <a href="#" class="video-link text-center" data-video-src="https://youtu.be/tswr-aUOPRo?vq=hd720">
+                <div class="card selectbox">
+                    <div class="card-header card-header-learn">
+                        <p class="text-light mt-3 mb-0 pb-0 smalltext">Administrativ personal</p>
+                        <b class="text-light mt-0 pt-0 smalllabel">SKAPA SCHEMA FRÅN EN MALL</b>
+
+                        <div class="row mt-2">
+                            <div class="col-3 offset-3">
+                                <span id="approvalSplitRowsBtn" class="btn menuitem menuitemSm menuitemLearn text-light">
+                                    <i class="fas fa-play agrey fa-xl"></i>
+                                </span>
+                            </div>
+
+                            <div class="col-3">
+                                <span id="approvalSplitRowsBtn" class="btn menuitem menuitemSm menuitemLearn text-light">
+                                    <i class="fas fa-desktop agrey fa-lg"></i>
+                                </span>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <small>I den här videon visar jag hur man kan schemalägga med hjälp av en schemamall. Jag visar steg för steg hur jag har använt en schemamall för att skapa ett schema för veckan. Vi går igenom hur man hittar och använder schemamallar, hur man kopplar en mall till en anställd och hur man skapar ett schema från en mall. Detta är ett snabbt och enkelt sätt att schemalägga, särskilt för de som har enkla schematider som upprepas varje vecka eller varannan vecka. </small>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+
+@* Personal, avdelning och grupp *@
+<section class="menugroup text-center">
+    <h5 class=""> SCHEMALÄGGNING</h5>
+    <div class="row">
+        @* Kalendergrupp för Schemaläggning *@
+        <div class="col-md-4 col-xl-3">
+            <a href="#" class="video-link text-center" data-video-src="https://youtu.be/AD3b7WVvrPc?vq=hd720">
+                <div class="card selectbox">
+                    <div class="card-header card-header-learn">
+                        <p class="text-light mt-3 mb-0 pb-0 smalltext">Schemalägg personal i desktop</p>
+                        <b class="text-light mt-0 pt-0 smalllabel">SKAPA KALENDERGRUPP</b>
+
+                        <div class="row mt-2">
+                            <div class="col-3 offset-3">
+                                <span id="approvalSplitRowsBtn" class="btn menuitem menuitemSm menuitemLearn text-light">
+                                    <i class="fas fa-play agrey fa-xl"></i>
+                                </span>
+                            </div>
+
+                            <div class="col-3">
+                                <span id="approvalSplitRowsBtn" class="btn menuitem menuitemSm menuitemLearn text-light">
+                                    <i class="fas fa-desktop agrey fa-lg"></i>
+                                </span>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <small>I den här videon visar jag hur du skapar en kalendergrupp för att effektivt arbeta med personalens scheman. Jag går igenom steg för steg hur du skapar och anpassar kalendern för att användas som ett schemaläggningsverktyg. Vi kommer också att titta på hur du lägger till personer i kalendern och hur du kan se deras arbetstider och produktionsbokningar. </small>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        @*Produktionsbunden personal *@
+        <div class="col-md-4 col-xl-3">
+            <a href="#" class="video-link text-center" data-video-src="https://youtu.be/PJBqwnwaJls?vq=hd720">
+                <div class="card selectbox">
+                    <div class="card-header card-header-learn">
+                        <p class="text-light mt-3 mb-0 pb-0 smalltext">Produktionsbunden personal</p>
+                        <b class="text-light mt-0 pt-0 smalllabel">SKAPA SCHEMA FRÅN PLANERING</b>
+
+                        <div class="row mt-2">
+                            <div class="col-3 offset-3">
+                                <span id="approvalSplitRowsBtn" class="btn menuitem menuitemSm menuitemLearn text-light">
+                                    <i class="fas fa-play agrey fa-xl"></i>
+                                </span>
+                            </div>
+
+                            <div class="col-3">
+                                <span id="approvalSplitRowsBtn" class="btn menuitem menuitemSm menuitemLearn text-light">
+                                    <i class="fas fa-desktop agrey fa-lg"></i>
+                                </span>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <small>I denna video visar jag hur man skapar schema från planering för produktionsbunden personal. Jag visar hur man lägger in rast automatisk och hur man kan ställa in så att tid läggs till före och efter pass som skapats utifrån olika produktionsaktiviteter. </small>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        @*Teknisk Personal *@
+        <div class="col-md-4 col-xl-3">
+            <a href="#" class="video-link text-center" data-video-src="https://youtu.be/fCWG0C9Ft-s?vq=hd720">
+                <div class="card selectbox">
+                    <div class="card-header card-header-learn">
+                        <p class="text-light mt-3 mb-0 pb-0 smalltext">Teknisk personal</p>
+                        <b class="text-light mt-0 pt-0 smalllabel">SKAPA SCHEMA FRÅN AVDELNING</b>
+
+                        <div class="row mt-2">
+                            <div class="col-3 offset-3">
+                                <span id="approvalSplitRowsBtn" class="btn menuitem menuitemSm menuitemLearn text-light">
+                                    <i class="fas fa-play agrey fa-xl"></i>
+                                </span>
+                            </div>
+
+                            <div class="col-3">
+                                <span id="approvalSplitRowsBtn" class="btn menuitem menuitemSm menuitemLearn text-light">
+                                    <i class="fas fa-desktop agrey fa-lg"></i>
+                                </span>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <small>I denna video lär du dig skapa och redigera arbetspass i Timewise för att schemalägga personal på en specifik avdelning. Filmen går igenom stegen för att skapa ett arbetspass, ge det ett namn och ange arbetstider. Du lär dig även lägga till raster i schemat. Detta är en användbar metod för att effektivt schemalägga och organisera arbetspass för anställda i Timewise. </small>
+                    </div>
+                </div>
+            </a>
+        </div>
+        @*   Admin *@
+        <div class="col-md-4 col-xl-3">
+            <a href="#" class="video-link text-center" data-video-src="https://youtu.be/tswr-aUOPRo?vq=hd720">
+                <div class="card selectbox">
+                    <div class="card-header card-header-learn">
+                        <p class="text-light mt-3 mb-0 pb-0 smalltext">Administrativ personal</p>
+                        <b class="text-light mt-0 pt-0 smalllabel">SKAPA SCHEMA FRÅN EN MALL</b>
+
+                        <div class="row mt-2">
+                            <div class="col-3 offset-3">
+                                <span id="approvalSplitRowsBtn" class="btn menuitem menuitemSm menuitemLearn text-light">
+                                    <i class="fas fa-play agrey fa-xl"></i>
+                                </span>
+                            </div>
+
+                            <div class="col-3">
+                                <span id="approvalSplitRowsBtn" class="btn menuitem menuitemSm menuitemLearn text-light">
+                                    <i class="fas fa-desktop agrey fa-lg"></i>
+                                </span>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <small>I den här videon visar jag hur man kan schemalägga med hjälp av en schemamall. Jag visar steg för steg hur jag har använt en schemamall för att skapa ett schema för veckan. Vi går igenom hur man hittar och använder schemamallar, hur man kopplar en mall till en anställd och hur man skapar ett schema från en mall. Detta är ett snabbt och enkelt sätt att schemalägga, särskilt för de som har enkla schematider som upprepas varje vecka eller varannan vecka. </small>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+
+@* Lokaler i Timewise *@
+<section class="menugroup text-center">
+    <h5 class=""> SCHEMALÄGGNING</h5>
+    <div class="row">
+        @* Kalendergrupp för Schemaläggning *@
+        <div class="col-md-4 col-xl-3">
+            <a href="#" class="video-link text-center" data-video-src="https://youtu.be/AD3b7WVvrPc?vq=hd720">
+                <div class="card selectbox">
+                    <div class="card-header card-header-learn">
+                        <p class="text-light mt-3 mb-0 pb-0 smalltext">Schemalägg personal i desktop</p>
+                        <b class="text-light mt-0 pt-0 smalllabel">SKAPA KALENDERGRUPP</b>
+
+                        <div class="row mt-2">
+                            <div class="col-3 offset-3">
+                                <span id="approvalSplitRowsBtn" class="btn menuitem menuitemSm menuitemLearn text-light">
+                                    <i class="fas fa-play agrey fa-xl"></i>
+                                </span>
+                            </div>
+
+                            <div class="col-3">
+                                <span id="approvalSplitRowsBtn" class="btn menuitem menuitemSm menuitemLearn text-light">
+                                    <i class="fas fa-desktop agrey fa-lg"></i>
+                                </span>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <small>I den här videon visar jag hur du skapar en kalendergrupp för att effektivt arbeta med personalens scheman. Jag går igenom steg för steg hur du skapar och anpassar kalendern för att användas som ett schemaläggningsverktyg. Vi kommer också att titta på hur du lägger till personer i kalendern och hur du kan se deras arbetstider och produktionsbokningar. </small>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        @*Produktionsbunden personal *@
+        <div class="col-md-4 col-xl-3">
+            <a href="#" class="video-link text-center" data-video-src="https://youtu.be/PJBqwnwaJls?vq=hd720">
+                <div class="card selectbox">
+                    <div class="card-header card-header-learn">
+                        <p class="text-light mt-3 mb-0 pb-0 smalltext">Produktionsbunden personal</p>
+                        <b class="text-light mt-0 pt-0 smalllabel">SKAPA SCHEMA FRÅN PLANERING</b>
+
+                        <div class="row mt-2">
+                            <div class="col-3 offset-3">
+                                <span id="approvalSplitRowsBtn" class="btn menuitem menuitemSm menuitemLearn text-light">
+                                    <i class="fas fa-play agrey fa-xl"></i>
+                                </span>
+                            </div>
+
+                            <div class="col-3">
+                                <span id="approvalSplitRowsBtn" class="btn menuitem menuitemSm menuitemLearn text-light">
+                                    <i class="fas fa-desktop agrey fa-lg"></i>
+                                </span>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <small>I denna video visar jag hur man skapar schema från planering för produktionsbunden personal. Jag visar hur man lägger in rast automatisk och hur man kan ställa in så att tid läggs till före och efter pass som skapats utifrån olika produktionsaktiviteter. </small>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        @*Teknisk Personal *@
+        <div class="col-md-4 col-xl-3">
+            <a href="#" class="video-link text-center" data-video-src="https://youtu.be/fCWG0C9Ft-s?vq=hd720">
+                <div class="card selectbox">
+                    <div class="card-header card-header-learn">
+                        <p class="text-light mt-3 mb-0 pb-0 smalltext">Teknisk personal</p>
+                        <b class="text-light mt-0 pt-0 smalllabel">SKAPA SCHEMA FRÅN AVDELNING</b>
+
+                        <div class="row mt-2">
+                            <div class="col-3 offset-3">
+                                <span id="approvalSplitRowsBtn" class="btn menuitem menuitemSm menuitemLearn text-light">
+                                    <i class="fas fa-play agrey fa-xl"></i>
+                                </span>
+                            </div>
+
+                            <div class="col-3">
+                                <span id="approvalSplitRowsBtn" class="btn menuitem menuitemSm menuitemLearn text-light">
+                                    <i class="fas fa-desktop agrey fa-lg"></i>
+                                </span>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <small>I denna video lär du dig skapa och redigera arbetspass i Timewise för att schemalägga personal på en specifik avdelning. Filmen går igenom stegen för att skapa ett arbetspass, ge det ett namn och ange arbetstider. Du lär dig även lägga till raster i schemat. Detta är en användbar metod för att effektivt schemalägga och organisera arbetspass för anställda i Timewise. </small>
+                    </div>
+                </div>
+            </a>
+        </div>
+        @*   Admin *@
+        <div class="col-md-4 col-xl-3">
+            <a href="#" class="video-link text-center" data-video-src="https://youtu.be/tswr-aUOPRo?vq=hd720">
+                <div class="card selectbox">
+                    <div class="card-header card-header-learn">
+                        <p class="text-light mt-3 mb-0 pb-0 smalltext">Administrativ personal</p>
+                        <b class="text-light mt-0 pt-0 smalllabel">SKAPA SCHEMA FRÅN EN MALL</b>
+
+                        <div class="row mt-2">
+                            <div class="col-3 offset-3">
+                                <span id="approvalSplitRowsBtn" class="btn menuitem menuitemSm menuitemLearn text-light">
+                                    <i class="fas fa-play agrey fa-xl"></i>
+                                </span>
+                            </div>
+
+                            <div class="col-3">
+                                <span id="approvalSplitRowsBtn" class="btn menuitem menuitemSm menuitemLearn text-light">
+                                    <i class="fas fa-desktop agrey fa-lg"></i>
+                                </span>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <small>I den här videon visar jag hur man kan schemalägga med hjälp av en schemamall. Jag visar steg för steg hur jag har använt en schemamall för att skapa ett schema för veckan. Vi går igenom hur man hittar och använder schemamallar, hur man kopplar en mall till en anställd och hur man skapar ett schema från en mall. Detta är ett snabbt och enkelt sätt att schemalägga, särskilt för de som har enkla schematider som upprepas varje vecka eller varannan vecka. </small>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+
+@* Avtal och Lönekörning *@
+<section class="menugroup text-center">
+    <h5 class=""> SCHEMALÄGGNING</h5>
+    <div class="row">
+        @* Kalendergrupp för Schemaläggning *@
+        <div class="col-md-4 col-xl-3">
+            <a href="#" class="video-link text-center" data-video-src="https://youtu.be/AD3b7WVvrPc?vq=hd720">
+                <div class="card selectbox">
+                    <div class="card-header card-header-learn">
+                        <p class="text-light mt-3 mb-0 pb-0 smalltext">Schemalägg personal i desktop</p>
+                        <b class="text-light mt-0 pt-0 smalllabel">SKAPA KALENDERGRUPP</b>
+
+                        <div class="row mt-2">
+                            <div class="col-3 offset-3">
+                                <span id="approvalSplitRowsBtn" class="btn menuitem menuitemSm menuitemLearn text-light">
+                                    <i class="fas fa-play agrey fa-xl"></i>
+                                </span>
+                            </div>
+
+                            <div class="col-3">
+                                <span id="approvalSplitRowsBtn" class="btn menuitem menuitemSm menuitemLearn text-light">
+                                    <i class="fas fa-desktop agrey fa-lg"></i>
+                                </span>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <small>I den här videon visar jag hur du skapar en kalendergrupp för att effektivt arbeta med personalens scheman. Jag går igenom steg för steg hur du skapar och anpassar kalendern för att användas som ett schemaläggningsverktyg. Vi kommer också att titta på hur du lägger till personer i kalendern och hur du kan se deras arbetstider och produktionsbokningar. </small>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        @*Produktionsbunden personal *@
+        <div class="col-md-4 col-xl-3">
+            <a href="#" class="video-link text-center" data-video-src="https://youtu.be/PJBqwnwaJls?vq=hd720">
+                <div class="card selectbox">
+                    <div class="card-header card-header-learn">
+                        <p class="text-light mt-3 mb-0 pb-0 smalltext">Produktionsbunden personal</p>
+                        <b class="text-light mt-0 pt-0 smalllabel">SKAPA SCHEMA FRÅN PLANERING</b>
+
+                        <div class="row mt-2">
+                            <div class="col-3 offset-3">
+                                <span id="approvalSplitRowsBtn" class="btn menuitem menuitemSm menuitemLearn text-light">
+                                    <i class="fas fa-play agrey fa-xl"></i>
+                                </span>
+                            </div>
+
+                            <div class="col-3">
+                                <span id="approvalSplitRowsBtn" class="btn menuitem menuitemSm menuitemLearn text-light">
+                                    <i class="fas fa-desktop agrey fa-lg"></i>
+                                </span>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <small>I denna video visar jag hur man skapar schema från planering för produktionsbunden personal. Jag visar hur man lägger in rast automatisk och hur man kan ställa in så att tid läggs till före och efter pass som skapats utifrån olika produktionsaktiviteter. </small>
+                    </div>
+                </div>
+            </a>
+        </div>
+
+        @*Teknisk Personal *@
+        <div class="col-md-4 col-xl-3">
+            <a href="#" class="video-link text-center" data-video-src="https://youtu.be/fCWG0C9Ft-s?vq=hd720">
+                <div class="card selectbox">
+                    <div class="card-header card-header-learn">
+                        <p class="text-light mt-3 mb-0 pb-0 smalltext">Teknisk personal</p>
+                        <b class="text-light mt-0 pt-0 smalllabel">SKAPA SCHEMA FRÅN AVDELNING</b>
+
+                        <div class="row mt-2">
+                            <div class="col-3 offset-3">
+                                <span id="approvalSplitRowsBtn" class="btn menuitem menuitemSm menuitemLearn text-light">
+                                    <i class="fas fa-play agrey fa-xl"></i>
+                                </span>
+                            </div>
+
+                            <div class="col-3">
+                                <span id="approvalSplitRowsBtn" class="btn menuitem menuitemSm menuitemLearn text-light">
+                                    <i class="fas fa-desktop agrey fa-lg"></i>
+                                </span>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <small>I denna video lär du dig skapa och redigera arbetspass i Timewise för att schemalägga personal på en specifik avdelning. Filmen går igenom stegen för att skapa ett arbetspass, ge det ett namn och ange arbetstider. Du lär dig även lägga till raster i schemat. Detta är en användbar metod för att effektivt schemalägga och organisera arbetspass för anställda i Timewise. </small>
+                    </div>
+                </div>
+            </a>
+        </div>
+        @*   Admin *@
+        <div class="col-md-4 col-xl-3">
+            <a href="#" class="video-link text-center" data-video-src="https://youtu.be/tswr-aUOPRo?vq=hd720">
+                <div class="card selectbox">
+                    <div class="card-header card-header-learn">
+                        <p class="text-light mt-3 mb-0 pb-0 smalltext">Administrativ personal</p>
+                        <b class="text-light mt-0 pt-0 smalllabel">SKAPA SCHEMA FRÅN EN MALL</b>
+
+                        <div class="row mt-2">
+                            <div class="col-3 offset-3">
+                                <span id="approvalSplitRowsBtn" class="btn menuitem menuitemSm menuitemLearn text-light">
+                                    <i class="fas fa-play agrey fa-xl"></i>
+                                </span>
+                            </div>
+
+                            <div class="col-3">
+                                <span id="approvalSplitRowsBtn" class="btn menuitem menuitemSm menuitemLearn text-light">
+                                    <i class="fas fa-desktop agrey fa-lg"></i>
+                                </span>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <small>I den här videon visar jag hur man kan schemalägga med hjälp av en schemamall. Jag visar steg för steg hur jag har använt en schemamall för att skapa ett schema för veckan. Vi går igenom hur man hittar och använder schemamallar, hur man kopplar en mall till en anställd och hur man skapar ett schema från en mall. Detta är ett snabbt och enkelt sätt att schemalägga, särskilt för de som har enkla schematider som upprepas varje vecka eller varannan vecka. </small>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- Modal Filmer på Youtube-->
+<div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="videoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="videoModalLabel">Timewise Learn</h5>
+                <button type="button" class="close" data-dismiss="modal" data-bs-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <iframe id="videoIframe" width="100%" height="100%" frameborder="0" allow="autoplay; fullscreen"></iframe>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script>
+    
+
+    $(document).ready(function() {
+        $('.video-link').click(function(e) {
+            e.preventDefault();
+            const videoSrc = $(this).data('video-src');
+            $('#videoIframe').attr('src', videoSrc);
+            $('#videoModal').modal('show');
+        });
+
+        $('#videoModal').on('hidden.bs.modal', function() {
+            $('#videoIframe').attr('src', '');
+        });
+    });
+</script>
+

@@ -8,6 +8,7 @@
 
   <ItemGroup>
     <PackageReference Include="font-awesome" Version="4.7.0" />
+    <PackageReference Include="jQuery" Version="3.7.1" />
   </ItemGroup>
 
 </Project>
