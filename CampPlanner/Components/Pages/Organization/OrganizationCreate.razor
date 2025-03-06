@@ -1,0 +1,58 @@
+﻿@page "/organization/create"
+@using CampPlanner.Models
+@using CampPlanner.Services
+@inject OrganizationService OrganizationService
+
+<h3>Create Organization</h3>
+
+<EditForm Model="organization" OnValidSubmit="HandleValidSubmit">
+    <DataAnnotationsValidator />
+    <ValidationSummary />
+
+    <div class="form-group">
+        <label for="Name">Name</label>
+        <InputText id="Name" class="form-control" @bind-Value="organization.Name" />
+    </div>
+    <div class="form-group">
+        <label for="ContactPerson">Contact Person</label>
+        <InputText id="ContactPerson" class="form-control" @bind-Value="organization.ContactPerson" />
+    </div>
+    <div class="form-group">
+        <label for="Email">Email</label>
+        <InputText id="Email" class="form-control" @bind-Value="organization.Email" />
+    </div>
+    <div class="form-group">
+        <label for="PhoneNumber">Phone Number</label>
+        <InputText id="PhoneNumber" class="form-control" @bind-Value="organization.PhoneNumber" />
+    </div>
+    <div class="form-group">
+        <label for="Logotype">Logotype</label>
+        <InputFile id="Logotype" class="form-control" OnChange="HandleFileSelected" />
+    </div>
+    <button type="submit" class="btn btn-primary">Save</button>
+</EditForm>
+
+@code {
+    private Organization organization = new Organization
+        {
+            Name = string.Empty // Initialize the required Name property
+        };
+
+    private async Task HandleValidSubmit()
+    {
+        if (string.IsNullOrWhiteSpace(organization.Name))
+        {
+            // Handle the case where Name is not provided
+            // For example, show an error message to the user
+            return;
+        }
+
+        await OrganizationService.CreateOrganizationAsync(organization);
+        // Redirect to the list page or show a success message
+    }
+
+    private void HandleFileSelected(InputFileChangeEventArgs e)
+    {
+        // Handle file upload
+    }
+}

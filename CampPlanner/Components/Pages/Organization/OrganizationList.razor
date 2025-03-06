@@ -1,0 +1,48 @@
+﻿@page "/organization/list"
+@using CampPlanner.Models
+@using CampPlanner.Services
+@inject OrganizationService OrganizationService
+
+<h1>Index</h1>
+
+<p>
+    <a href="/organization/create" class="btn btn-primary">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Contact Person</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+            <th>Logotype</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in organizations)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.ContactPerson</td>
+                <td>@item.Email</td>
+                <td>@item.PhoneNumber</td>
+                <td>@item.Logotype</td>
+                <td>
+                    <a href="/organization/edit/@item.Id" class="btn btn-secondary">Edit</a> |
+                    <a href="/organization/details/@item.Id" class="btn btn-info">Details</a> |
+                    <a href="/organization/delete/@item.Id" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@code {
+    private List<Organization> organizations = new List<Organization>();
+    
+    protected override async Task OnInitializedAsync()
+    {
+        organizations = await OrganizationService.GetOrganizationsAsync();
+    }
+}

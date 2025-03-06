@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>aspnet-CampPlanner-21fd6717-a09e-499b-a3a4-49bb4da5b7f4</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="8.0.13" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="8.0.13" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.13" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="8.0.13" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="8.0.7" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Components\Pages\Location\" />
+    <Folder Include="Components\Pages\Furniture\" />
+    <Folder Include="Components\Pages\Planner\" />
+    <Folder Include="Components\Pages\MeMyFriendsIntoARoom\" />
+    <Folder Include="Components\Pages\Event\" />
+    <Folder Include="Components\Pages\Booking\" />
+    <Folder Include="Components\Pages\Person\" />
+    <Folder Include="Components\Pages\PersonsIntoRooms\" />
+    <Folder Include="Components\Pages\Room\" />
+  </ItemGroup>
+
+</Project>
