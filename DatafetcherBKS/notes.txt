@@ -1,0 +1,20 @@
+# Activate virtual environment to be able to run project and pip commands:
+ venv\Scripts\activate
+
+# Check if port is open: netstat -ano | findstr :8000
+# If the port is open and there are problems, close it by running the following command in Command Prompt:
+# taskkill /PID <PID> /F
+# Replace <PID> with the actual process ID, e.g., taskkill /PID 15940 /F
+
+# Run project by typing:
+     python main.py
+     
+# Install dependencies by typing:
+     pip install -r requirements.txt
+    
+# Access the API by visiting:
+    http://127.0.0.1:8000/company/Ikea
+
+
+
+

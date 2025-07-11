@@ -1,0 +1,11 @@
+# Ignorera miljovariabler
+.env
+
+# Ignorera __pycache__ och virtuella miljoer
+__pycache__/
+venv/
+.venv/
+
+# Ignorera IDE-filer (t.ex. för VS Code eller PyCharm)
+.vscode/
+.idea/
