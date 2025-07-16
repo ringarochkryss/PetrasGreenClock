@@ -8,7 +8,9 @@ from ctypes import windll
 import keyboard # type: ignore
 from tibber import fetch_tibber_prices
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
+from garbage import get_next_pickups
 import matplotlib.pyplot as plt
+from PIL import Image, ImageTk
 
 # 🎨 Style
 BG_COLOR = "#f2f2f2"
@@ -21,7 +23,7 @@ FONT_TITLE = ("Segoe UI", 10, "bold")
 monitors = get_monitors()
 screen = monitors[1] if len(monitors) > 1 else monitors[0]
 panel_width = 260
-panel_height = 260
+panel_height = 310
 x = screen.x + screen.width - panel_width - 10
 y = screen.y + 40
 
@@ -41,6 +43,30 @@ def create_data_card(icon, text="", full_width=False):
                  fg="#4a90e2", anchor="w")  # Example: soft blue
     label.pack(padx=8, pady=5)
     return label
+
+# 🗑️ Garbage info card at bottom
+pickup_card = tk.Frame(root, bg=CARD_BG)
+pickup_card.pack(side="bottom", pady=1, padx=0, fill="x")
+
+pickup_label = tk.Label(pickup_card, text="Loading...", font=FONT_SMALL, bg=CARD_BG, fg="#4a90e2", anchor="w")
+pickup_label.pack(padx=8, pady=0, anchor="w")
+
+icon_frame = tk.Frame(pickup_card, bg=CARD_BG)
+icon_frame.pack(padx=8, pady=0, anchor="w")
+
+
+# 🗑️ Bin icons
+ASSETS = os.path.join(os.path.dirname(__file__), "Assets")
+BIN_IMAGES = {}
+
+def load_bin_images():
+    global BIN_IMAGES
+    BIN_IMAGES = {
+        "1_normal": ImageTk.PhotoImage(Image.open(os.path.join(ASSETS, "bin1blue.png")).resize((20, 25))),
+        "2_normal": ImageTk.PhotoImage(Image.open(os.path.join(ASSETS, "bin2blue.png")).resize((20, 25))),
+        "1_alert": ImageTk.PhotoImage(Image.open(os.path.join(ASSETS, "bin1red.png")).resize((20, 25))),
+        "2_alert": ImageTk.PhotoImage(Image.open(os.path.join(ASSETS, "bin2red.png")).resize((20, 25)))
+    }
 
 # 📅 Fixed meeting labels
 meeting_frame = tk.Frame(root, bg=CARD_BG)
@@ -189,6 +215,48 @@ def update_meeting():
 
     root.after(300000, update_meeting)
 
+# 🗑️ Garbagetext
+def update_pickup():
+    for widget in icon_frame.winfo_children():
+        widget.destroy()
+
+    pickups = get_next_pickups("garbage.json")
+    if not pickups:
+        pickup_label.config(text="No pickup info", fg="#4a90e2")
+        return
+
+    today = datetime.today().date()
+    next_date = pickups[0]["date"]
+    highlight = (next_date - today == timedelta(days=1))
+    color = "#ff4444" if highlight else "#4a90e2"
+
+    # Format date as Tue 22/7
+    date_text = next_date.strftime("%a %d/%m").replace("/0", "/")  # optional: remove leading zeros
+
+    # Clear main label (we’ll show icon and date separately)
+    pickup_label.config(text="", fg=color)
+
+    # Display icons + date beside each
+    for p in pickups:
+        bin_num = p["bin"]
+        key = f"{bin_num}_{'alert' if highlight else 'normal'}"
+        image = BIN_IMAGES.get(key)
+
+        bin_frame = tk.Frame(icon_frame, bg=CARD_BG)
+        bin_frame.pack(side="left", padx=6)
+
+        if image:
+            img_label = tk.Label(bin_frame, image=image, bg=CARD_BG)
+            img_label.image = image
+            img_label.pack(pady=(0, 0))
+
+        date_label = tk.Label(bin_frame, text=date_text, font=FONT_SMALL, fg=color, bg=CARD_BG)
+        date_label.pack(pady=(0, 0))
+    
+    root.after(86400000, update_pickup)
+
+
+
 # ⚡ Electricity price
 def update_price():
     data = fetch_tibber_prices().get("today", [])
@@ -223,9 +291,20 @@ hk_label.master.pack(in_=clock_row, side="left", padx=5)
 graph_row = tk.Frame(root, bg=BG_COLOR)
 graph_row.pack(pady=6)
 
-toggle_button = tk.Button(graph_row, text="📊", command=toggle_graph,
-                          font=FONT_SMALL, bg="#dddddd", fg="#4a90e2",
-                          activebackground="#cccccc", relief="flat", cursor="hand2")
+toggle_button = tk.Button(
+    graph_row,
+    text="📊 Elpris",
+    command=toggle_graph,
+    font=("Segoe UI", 9),
+    bg="#4a90e2",               # Blue background
+    fg="#ffffff",               # White text
+    activebackground="#3a78c2", # Darker blue when clicked
+    activeforeground="#ffffff", # Keeps white text
+    relief="raised",            # Gives 3D button feel
+    borderwidth=2,
+    cursor="hand2"
+)
+
 toggle_button.pack(side="left", padx=4)
 
 price_label = tk.Label(graph_row, text="⚡ Laddar pris...", font=FONT_SMALL,
@@ -245,4 +324,6 @@ update_labels()
 update_meeting()
 update_price()
 simulate_activity()
+load_bin_images()
+update_pickup()
 root.mainloop()

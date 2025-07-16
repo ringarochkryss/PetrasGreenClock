@@ -25,6 +25,7 @@
   <ItemGroup>
     <Compile Include="outlook_test.py" />
     <Compile Include="PetrasGreenClock.py" />
+    <Compile Include="garbage.py" />
     <Compile Include="tibber.py" />
   </ItemGroup>
   <ItemGroup>
@@ -37,6 +38,7 @@
     <Content Include="kompilera_get_meeting.bat" />
     <Content Include="meeting.txt" />
     <Content Include="requirements.txt" />
+    <Content Include="garbage.json" />
   </ItemGroup>
   <ItemGroup>
     <Interpreter Include="env\">
