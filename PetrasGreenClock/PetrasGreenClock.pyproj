@@ -23,6 +23,7 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="birthdays.py" />
     <Compile Include="outlook_test.py" />
     <Compile Include="PetrasGreenClock.py" />
     <Compile Include="garbage.py" />
@@ -33,6 +34,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include=".env" />
+    <Content Include="birthdays.json" />
     <Content Include="build.bat" />
     <Content Include="get_meeting.ps1" />
     <Content Include="kompilera_get_meeting.bat" />

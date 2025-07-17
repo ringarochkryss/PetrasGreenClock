@@ -1,4 +1,5 @@
-﻿import tkinter as tk
+﻿from bisect import bisect_right
+import tkinter as tk
 from datetime import datetime, timedelta
 from screeninfo import get_monitors
 import pytz
@@ -9,6 +10,7 @@ import keyboard # type: ignore
 from tibber import fetch_tibber_prices
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from garbage import get_next_pickups
+from birthdays import get_upcoming_birthdays
 import matplotlib.pyplot as plt
 from PIL import Image, ImageTk
 
@@ -23,7 +25,7 @@ FONT_TITLE = ("Segoe UI", 10, "bold")
 monitors = get_monitors()
 screen = monitors[1] if len(monitors) > 1 else monitors[0]
 panel_width = 260
-panel_height = 310
+panel_height = 350
 x = screen.x + screen.width - panel_width - 10
 y = screen.y + 40
 
@@ -33,6 +35,16 @@ root.geometry(f"{panel_width}x{panel_height}+{x}+{y}")
 root.configure(bg=BG_COLOR)
 root.attributes("-topmost", True)
 root.attributes("-alpha", 0.95)
+
+
+
+# 🖼 Layout setup
+def get_week_number():
+    return f"Vecka {datetime.today().isocalendar()[1]}"
+
+week_label = tk.Label(root, text=f"📅 {get_week_number()}",
+                      font=FONT_SMALL, bg=BG_COLOR, fg="#4a90e2", anchor="w")
+week_label.pack(pady=(6, 0), padx=10, anchor="w")
 
 # 📦 Card builder
 def create_data_card(icon, text="", full_width=False):
@@ -46,7 +58,7 @@ def create_data_card(icon, text="", full_width=False):
 
 # 🗑️ Garbage info card at bottom
 pickup_card = tk.Frame(root, bg=CARD_BG)
-pickup_card.pack(side="bottom", pady=1, padx=0, fill="x")
+pickup_card.pack(side="bottom", pady=0, padx=10, fill="x")
 
 pickup_label = tk.Label(pickup_card, text="Loading...", font=FONT_SMALL, bg=CARD_BG, fg="#4a90e2", anchor="w")
 pickup_label.pack(padx=8, pady=0, anchor="w")
@@ -62,17 +74,18 @@ BIN_IMAGES = {}
 def load_bin_images():
     global BIN_IMAGES
     BIN_IMAGES = {
-        "1_normal": ImageTk.PhotoImage(Image.open(os.path.join(ASSETS, "bin1blue.png")).resize((20, 25))),
-        "2_normal": ImageTk.PhotoImage(Image.open(os.path.join(ASSETS, "bin2blue.png")).resize((20, 25))),
-        "1_alert": ImageTk.PhotoImage(Image.open(os.path.join(ASSETS, "bin1red.png")).resize((20, 25))),
-        "2_alert": ImageTk.PhotoImage(Image.open(os.path.join(ASSETS, "bin2red.png")).resize((20, 25)))
+        "1_normal": ImageTk.PhotoImage(Image.open(os.path.join(ASSETS, "bin1blue.png")).resize((20, 27))),
+        "2_normal": ImageTk.PhotoImage(Image.open(os.path.join(ASSETS, "bin2blue.png")).resize((20, 27))),
+        "1_alert": ImageTk.PhotoImage(Image.open(os.path.join(ASSETS, "bin1red.png")).resize((20, 27))),
+        "2_alert": ImageTk.PhotoImage(Image.open(os.path.join(ASSETS, "bin2red.png")).resize((20, 27)))
     }
+
 
 # 📅 Fixed meeting labels
 meeting_frame = tk.Frame(root, bg=CARD_BG)
 meeting_frame.pack(pady=4, padx=10, fill="x")
 
-next_label = tk.Label(meeting_frame, text="Next meeting", font=FONT_SMALL, bg=CARD_BG, fg="#4a90e2", anchor="w")
+next_label = tk.Label(meeting_frame, text="Kalender", font=FONT_SMALL, bg=CARD_BG, fg="#4a90e2", anchor="w")
 next_label.pack(anchor="w", padx=8, pady=(6, 0))
 
 meeting_time_label = tk.Label(meeting_frame, text="", font=("Segoe UI", 12, "bold"), bg=CARD_BG, fg="#4a90e2", anchor="w")
@@ -80,6 +93,13 @@ meeting_time_label.pack(anchor="w", padx=8, pady=(2, 0))
 
 meeting_subject_label = tk.Label(meeting_frame, text="", font=("Segoe UI", 8), bg=CARD_BG, fg="#4a90e2", anchor="w")
 meeting_subject_label.pack(anchor="w", padx=8, pady=(2, 6))
+
+# 🎂 Birthday list
+birthday_card = tk.Frame(root, bg=CARD_BG)
+birthday_card.pack(pady=2, padx=10, fill="x")
+
+birthday_list_frame = tk.Frame(birthday_card, bg=CARD_BG)
+birthday_list_frame.pack(padx=8, pady=(0, 6), anchor="w")
 
 # 📊 Graph system
 graph_visible = False
@@ -154,8 +174,6 @@ def update_labels():
     root.after(1000, update_labels)
 
 # 📅 Meeting
-def get_week_number():
-    return f"Vecka {datetime.today().isocalendar()[1]}"
 
 def get_meeting_txt_path():
     return os.path.join(os.path.abspath("."), "meeting.txt")
@@ -215,6 +233,29 @@ def update_meeting():
 
     root.after(300000, update_meeting)
 
+    # 🎂Birthday reminder
+def update_birthdays():
+    for widget in birthday_list_frame.winfo_children():
+        widget.destroy()
+
+    birthdays = get_upcoming_birthdays("birthdays.json")
+    today = datetime.today().date()
+
+    for entry in birthdays:
+        color = "#ff4444" if (entry["date"] - today).days == 1 else "#4a90e2"
+
+        lbl = tk.Label(
+            birthday_list_frame,
+            text=f"🎂 {entry['text']}",
+            font=FONT_SMALL,
+            bg=CARD_BG,
+            fg=color,
+            anchor="w"
+        )
+        lbl.pack(anchor="w")
+
+    root.after(86400000, update_birthdays)
+
 # 🗑️ Garbagetext
 def update_pickup():
     for widget in icon_frame.winfo_children():
@@ -256,7 +297,6 @@ def update_pickup():
     root.after(86400000, update_pickup)
 
 
-
 # ⚡ Electricity price
 def update_price():
     data = fetch_tibber_prices().get("today", [])
@@ -271,10 +311,7 @@ def update_price():
         print(f"🕒 Price: {current_price:.2f}")
     root.after(300000, update_price)
 
-# 🖼 Layout setup
-week_label = tk.Label(root, text=f"📅 {get_week_number()}",
-                      font=FONT_SMALL, bg=BG_COLOR, fg="#4a90e2", anchor="w")
-week_label.pack(pady=(6, 0), padx=10, anchor="w")
+
 
 
 clock_row = tk.Frame(root, bg=BG_COLOR)
@@ -326,4 +363,5 @@ update_price()
 simulate_activity()
 load_bin_images()
 update_pickup()
+update_birthdays()
 root.mainloop()
